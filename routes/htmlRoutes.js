@@ -5,7 +5,7 @@ module.exports = (app) => {
         res.send(index.html);
     });
 
-    app.get("/exercises", (req, res) => {
+    app.get("/exercise", (req, res) => {
         res.sendFile(path.join(__dirname, "../public/exercise.html"));
     });
 

@@ -11,10 +11,10 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-const PORT = process.env.PORT || 3000;
-//for heroku?
+const PORT = process.env.PORT || 4000;
 
-mongoose.connect(MONGODB_URI);
+
+
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 
