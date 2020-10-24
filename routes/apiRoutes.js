@@ -2,31 +2,45 @@ const db = require("../models/index");
 
 module.exports = (app) => {
 
-    // index file
-    app.get("/", (req, res) => {
-        res.send(index.html);
-    });
-
+    
     //list of workouts
     app.get("/api/workouts", (req, res) => {
-        db.Workout.find({}).then((data) => {
+        db.Workout.find({})
+          .then((data) => {
             res.json(data);
-        });
-    });
+          })
+          .catch(err => {
+            res.status(400).json(err);
+          });
+      });
 
     //workouts from dates
     app.get("/api/workouts/range", (req, res) => {
-        db.Workout.find({}).then((data) => {
+        db.Workout.find({}).limit(7)
+          .then((data) => {
             res.json(data);
-        });
-    });
+          })
+          .catch(err => {
+            res.status(400).json(err);
+          });
+      });
 
-    //add exercise to workout
+    //update exercise to workout
     app.put("/api/workouts/:id", (req, res) => {
-        db.Workout.updateOne({ _id: req.params.id }, { exercises: [req.body] }).then(function (updatedData) {
-            res.json(updatedData);
-        });
-    });
+        const id = req.params.id
+      db.Workout.findByIdAndUpdate(
+            id, 
+            { $push: {exercises: req.body}}
+            
+        )
+          .then((data) => {
+            res.json(data);
+          })
+          .catch(err => {
+            res.status(400).json(err);
+          });
+      });
+      
 
     //add workout
     app.post("/api/workouts", (req, res) => {
