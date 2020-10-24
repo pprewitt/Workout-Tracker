@@ -2,26 +2,26 @@ const db = require("../models/index");
 
 module.exports = (app) => {
 
-    //render index
+    // index file
     app.get("/", (req, res) => {
         res.send(index.html);
     });
 
-    //pull list of workouts
+    //list of workouts
     app.get("/api/workouts", (req, res) => {
         db.Workout.find({}).then((data) => {
             res.json(data);
         });
     });
 
-    //pull workouts from dates
+    //workouts from dates
     app.get("/api/workouts/range", (req, res) => {
         db.Workout.find({}).then((data) => {
             res.json(data);
         });
     });
 
-    //add exercises to workout
+    //add exercise to workout
     app.put("/api/workouts/:id", (req, res) => {
         db.Workout.updateOne({ _id: req.params.id }, { exercises: [req.body] }).then(function (updatedData) {
             res.json(updatedData);
