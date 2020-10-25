@@ -26,22 +26,15 @@ module.exports = function (app) {
       });
 
     //update exercise to workout
-    app.put("/api/workouts/:id", (req, res) => {
-        
-      db.Workout.findByIdAndUpdate(
-            {
-            _id: req.params.id
-            },
-            { $push: {exercises: req.body}}
-            
-        )
-          .then((data) => {
-            res.json(data);
-          })
-          .catch(err => {
-            res.status(400).json(err);
-          });
-      });
+    app.put("/api/workouts/:id", ({ body, params }, res) => {
+        db.Workout.findByIdAndUpdate(params.id, { $push: { exercises: body}},
+            { new: true, runValidators: true })
+            .then(workouts => {
+                res.json(workouts);
+            }).catch(err => {
+                res.status(400).json(err);
+            });
+    });
       
 
     //add workout
