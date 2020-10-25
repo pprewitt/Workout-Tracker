@@ -24,7 +24,7 @@
   
  
 ## Installation 
- This site is deployed at  
+ This site is deployed at [Workout-Tracker](https://gentle-tor-74063.herokuapp.com/) 
   
  
 ## Usage 
@@ -44,7 +44,7 @@
   
  
 ## Tests 
- no testing scripts are included, but this is deployed here where users can test output. 
+ no testing scripts are included, but this is deployed here [Workout-Tracker](https://gentle-tor-74063.herokuapp.com/) where users can test output. 
   
  
 ## Questions/Contact 
