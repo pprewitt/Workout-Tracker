@@ -32,7 +32,7 @@
   
  
 ## Screen Shot 
- The front end code was supplied by instructors, I just wrote the backend.
+ ![screenshot](public/assets/workoutDemo.gif?raw=true)
  
  
 ## Credits 
