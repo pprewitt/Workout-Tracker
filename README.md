@@ -31,6 +31,10 @@
  Users should experience an intuitive interface, allowing them to toggle between entering their exercises and summarizing the data in the dashboard.
   
  
+## Screen Shot 
+ The front end code was supplied by instructors, I just wrote the backend.
+ 
+ 
 ## Credits 
  The front end code was supplied by instructors, I just wrote the backend.
   
