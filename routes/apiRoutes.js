@@ -1,6 +1,6 @@
 const db = require("../models/index");
 
-module.exports = (app) => {
+module.exports = function (app) {
 
     
     //list of workouts
@@ -27,9 +27,11 @@ module.exports = (app) => {
 
     //update exercise to workout
     app.put("/api/workouts/:id", (req, res) => {
-        const id = req.params.id
+        
       db.Workout.findByIdAndUpdate(
-            id, 
+            {
+            _id: req.params.id
+            },
             { $push: {exercises: req.body}}
             
         )
